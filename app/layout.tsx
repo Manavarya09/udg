@@ -56,7 +56,6 @@ export default function RootLayout({
       >
         <FestivalBackground />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <Header />
           {children}
         </div>
       </body>
