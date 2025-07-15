@@ -1,24 +1,13 @@
-export const metadata = {
-  title: "Home - Open PRO",
-  description: "Page description",
-};
-
-import PageIllustration from "@/components/page-illustration";
-import Hero from "@/components/hero-home";
-import Workflows from "@/components/workflows";
-import Features from "@/components/features";
-import Testimonials from "@/components/testimonials";
-import Cta from "@/components/cta";
+import Header from "@/components/ui/header";
+import HeroHome from "@/components/hero-home";
 
 export default function Home() {
   return (
     <>
-      <PageIllustration />
-      <Hero />
-      <Workflows />
-      <Features />
-      <Testimonials />
-      <Cta />
+      <Header />
+      <main className="pt-24 bg-gradient-to-b from-pink-800 to-pink-400 min-h-screen">
+        <HeroHome />
+      </main>
     </>
   );
 }
