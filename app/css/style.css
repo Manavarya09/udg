@@ -91,3 +91,107 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
+/* Remove all default margin/padding and ensure full viewport coverage */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.event-card {
+  transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), box-shadow 0.4s cubic-bezier(.34,1.56,.64,1);
+  will-change: transform, box-shadow;
+}
+.event-card:hover {
+  transform: scale(1.22) rotate(-6deg) !important;
+  z-index: 50 !important;
+  box-shadow: 0 40px 120px 0 rgba(236, 72, 153, 0.45), 0 0 0 16px #fff8;
+}
+
+.wardrobe-flip {
+  perspective: 1800px;
+}
+.wardrobe-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.34,1.56,.64,1);
+  transform-style: preserve-3d;
+}
+.wardrobe-flip:hover .wardrobe-inner,
+.wardrobe-flip:focus .wardrobe-inner {
+  transform: rotateY(180deg);
+}
+.wardrobe-front, .wardrobe-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  backface-visibility: hidden;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.wardrobe-back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes float1 {
+  0% { transform: translateY(0) scale(1.08) skewY(-14deg) rotate(-10deg); }
+  30% { transform: translateY(-40px) scale(1.13) skewY(-14deg) rotate(-6deg); }
+  50% { transform: translateY(-60px) scale(1.18) skewY(-14deg) rotate(-2deg); }
+  70% { transform: translateY(-40px) scale(1.13) skewY(-14deg) rotate(-6deg); }
+  100% { transform: translateY(0) scale(1.08) skewY(-14deg) rotate(-10deg); }
+}
+@keyframes float2 {
+  0% { transform: translateY(0) scale(1.04) skewY(-10deg) rotate(-2deg); }
+  30% { transform: translateY(-30px) scale(1.09) skewY(-10deg) rotate(2deg); }
+  50% { transform: translateY(-50px) scale(1.14) skewY(-10deg) rotate(6deg); }
+  70% { transform: translateY(-30px) scale(1.09) skewY(-10deg) rotate(2deg); }
+  100% { transform: translateY(0) scale(1.04) skewY(-10deg) rotate(-2deg); }
+}
+@keyframes float3 {
+  0% { transform: translateY(0) scale(1.02) skewY(-8deg) rotate(2deg); }
+  30% { transform: translateY(-20px) scale(1.07) skewY(-8deg) rotate(6deg); }
+  50% { transform: translateY(-40px) scale(1.12) skewY(-8deg) rotate(10deg); }
+  70% { transform: translateY(-20px) scale(1.07) skewY(-8deg) rotate(6deg); }
+  100% { transform: translateY(0) scale(1.02) skewY(-8deg) rotate(2deg); }
+}
+@keyframes float4 {
+  0% { transform: translateY(0) scale(1.08) skewY(-6deg) rotate(10deg); }
+  30% { transform: translateY(-40px) scale(1.13) skewY(-6deg) rotate(14deg); }
+  50% { transform: translateY(-60px) scale(1.18) skewY(-6deg) rotate(18deg); }
+  70% { transform: translateY(-40px) scale(1.13) skewY(-6deg) rotate(14deg); }
+  100% { transform: translateY(0) scale(1.08) skewY(-6deg) rotate(10deg); }
+}
+.animate-float { animation: float1 3.2s ease-in-out infinite; }
+.animate-float2 { animation: float2 3.6s ease-in-out infinite; }
+.animate-float3 { animation: float3 3.8s ease-in-out infinite; }
+.animate-float4 { animation: float4 3.4s ease-in-out infinite; }
+
+.card-skew {
+  transform: skewX(-14deg);
+}
+.card-skew * {
+  transform: skewX(14deg);
+}
+
+/* Remove animation/hover/flip from event cards */
+.event-card, .event-card:hover, .animate-float, .animate-float2, .animate-float3, .animate-float4, .wardrobe-flip, .wardrobe-inner, .wardrobe-front, .wardrobe-back {
+  animation: none !important;
+  transition: none !important;
+  transform-style: flat !important;
+  perspective: none !important;
+  backface-visibility: visible !important;
+}
