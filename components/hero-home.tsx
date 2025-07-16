@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import UdgaarThemeImg from "@/public/images/udgaar-theme-2025.png";
 import Footer from "./ui/footer";
-import styles from './EventsCardSection.module.css';
+import cardStyles from './Card.module.css';
 
 function getTimeLeft(target: number) {
   const now = typeof window !== 'undefined' ? new Date().getTime() : 0;
@@ -146,27 +146,22 @@ function ParallaxVideo() {
 }
 
 const UdgarBg = () => (
-  <section className="relative min-h-[150vh] md:min-h-[150vh] overflow-hidden">
-    {/* Background Images */}
-    <div className="absolute inset-0">
-      <Image
-        src={require('./assets/top-bg.png')}
-        alt="Background"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-transparent bg-opacity-30"></div>
-    </div>
-
-    {/* UDGAAR Title */}
-    <div className="absolute inset-0 top-[20vh] flex-col justify-center items-start">
-      {/* Removed hero-image-01.png from center */}
-      {/* Removed CTA buttons Register now and Watch Teaser */}
-    </div>
+  <section className="relative w-full aspect-video bg-black overflow-hidden p-0 m-0">
+    <video
+      src="/videos/udgaar website video.mp4"
+      className="w-full h-full object-contain bg-black"
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{ display: 'block' }}
+    />
+    <div className="absolute inset-0 bg-transparent bg-opacity-30"></div>
   </section>
 );
 
 const AboutBg = () => {
-  return <section className="relative min-h-[190vh] top-[-60vh] overflow-hidden">
+  return <section className="relative min-h-screen overflow-hidden">
     {/* Background Image Layer */}
     <div className="absolute inset-0 z-0">
       <Image
@@ -218,12 +213,29 @@ const SpeakersCarousel = () => {
   const touchEndX = useRef<number | null>(null);
 
   const speakers = [
-    { image: "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581156/pj-jweller/Mask_group_2_f64w79.png", title: "HH Guru Prasad Swami Maharaj" },
-    { image: "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581151/pj-jweller/Mask_group_1_m0afj6.png", title: "Theatrical Show" },
-    { image: "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581144/pj-jweller/Mask_group_dk9qwm.png", title: "Musical Concert" },
-    { image: "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581198/pj-jweller/Mask_group_3_znpkp2.png", title: "Cultural Performance" },
+    {
+      image:
+        "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581156/pj-jweller/Mask_group_2_f64w79.png",
+      title: "HH Guru Prasad Swami Maharaj",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581151/pj-jweller/Mask_group_1_m0afj6.png",
+      title: "Theatrical Show",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581144/pj-jweller/Mask_group_dk9qwm.png",
+      title: "Musical Concert",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581198/pj-jweller/Mask_group_3_znpkp2.png",
+      title: "Cultural Performance",
+    },
   ];
 
+  // Detect mobile
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -232,9 +244,11 @@ const SpeakersCarousel = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Navigation
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? speakers.length - 1 : prev - 1));
   const nextSlide = () => setCurrentSlide((prev) => (prev === speakers.length - 1 ? 0 : prev + 1));
 
+  // Swipe handlers
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -253,11 +267,15 @@ const SpeakersCarousel = () => {
 
   return (
     <section className="relative py-8 md:py-24">
-      <div className="absolute inset-0 bg-cover bg-center"
+      {/* Background Pattern */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://cdn.builder.io/api/v1/image/assets/TEMP/1d045ffa9b3bb8df694ebab2799e4bbe6126f5e2?width=2880')",
+          backgroundImage:
+            "url('https://cdn.builder.io/api/v1/image/assets/TEMP/1d045ffa9b3bb8df694ebab2799e4bbe6126f5e2?width=2880')",
         }}
       ></div>
+
       <div className="relative max-w-screen-xl mx-auto px-2 md:px-8 lg:px-16">
         <div className="flex justify-center items-center relative">
           {isMobile ? (
@@ -285,16 +303,19 @@ const SpeakersCarousel = () => {
                       className="w-full flex-shrink-0 flex flex-col items-center justify-center px-4"
                       style={{ minWidth: '100%' }}
                     >
-                      <div className={styles.card}>
-                        <img
-                          src={speaker.image}
-                          alt={speaker.title}
-                          className={styles.cardImage}
-                        />
-                        <div className={styles.cardOverlay} />
-                        <div className={styles.cardText}>
-                          <div className={styles.accentLine} />
-                          <div className={styles.cardTitle}>{speaker.title}</div>
+                      {/* EXACT same markup as desktop card */}
+                      <div className={cardStyles.card + ' group cursor-pointer hover:scale-105 transition-transform duration-300'}>
+                        <div className={cardStyles.cardInner}>
+                          <img
+                            src={speaker.image}
+                            alt={speaker.title}
+                            className={cardStyles.cardImage}
+                          />
+                          <div className={cardStyles.cardOverlay} />
+                          <div className={cardStyles.cardText}>
+                            <div className={cardStyles.accentLine} />
+                            <div className={cardStyles.cardTitle}>{speaker.title}</div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -314,18 +335,16 @@ const SpeakersCarousel = () => {
               {speakers.map((speaker, index) => (
                 <div
                   key={index}
-                  className={styles.card}
+                  className="relative group cursor-pointer transform hover:scale-105 transition-transform duration-300"
+                  style={{
+                    filter: "drop-shadow(-5px -5px 20px rgba(0, 0, 0, 0.25))",
+                  }}
                 >
                   <img
                     src={speaker.image}
                     alt={speaker.title}
-                    className={styles.cardImage}
+                    className="w-full h-[220px] sm:h-[300px] md:h-[500px] lg:h-[600px] object-cover rounded-lg"
                   />
-                  <div className={styles.cardOverlay} />
-                  <div className={styles.cardText}>
-                    <div className={styles.accentLine} />
-                    <div className={styles.cardTitle}>{speaker.title}</div>
-                  </div>
                 </div>
               ))}
             </div>
@@ -418,39 +437,20 @@ const MainSpeakersSection = () => (
 export default function HeroHome() {
   return (
     <>
+      <UdgarBg />
+      {/* Move the countdown and pink section directly below the video */}
+      <AboutBg />
       <div className="relative">
-        <UdgarBg />
-        <AboutBg />
         <ChiefBg />
       </div>
       <div className="relative">
-        <div className="absolute left-0 w-full flex-col top-[-210vh] z-[12]">
-
-          <SpeakersCarousel />
-          
-            {/* Parallax Video Section (full-bleed, edge-to-edge) */}
-          <div className="relative w-screen">
-            <ParallaxVideo />
-          </div>
-
-          
-
-
-        
-
-
-          
-
-
+        <SpeakersCarousel />
+        <div className="relative w-screen">
+          <ParallaxVideo />
         </div>
+        <MainSpeakersSection />
       </div>
-      <MainSpeakersSection/>
-
-          <Footer />
-
-      {/* Speakers Section */}
-
-      
+      <Footer />
     </>
   );
 }
