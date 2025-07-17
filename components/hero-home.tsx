@@ -177,12 +177,14 @@ const AboutBg = () => {
       <Countdown />
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 mb-0 px-2 md:px-4 py-4 md:py-8" id="theme2025">
         <div className="flex-shrink-0 bg-white rounded-2xl md:rounded-3xl p-2 md:p-4 shadow-2xl" style={{ border: '3px solid #bdb7f7' }}>
-          <Image
-            src={UdgaarThemeImg}
-            alt="Udgaar 2025 Theme"
-            className="rounded-xl md:rounded-2xl h-[60vw] w-[60vw] md:h-[40vw] md:w-[40vw]"
-            priority={false}
-          />
+          <div className="udgaar-glow rounded-xl md:rounded-2xl">
+            <Image
+              src={UdgaarThemeImg}
+              alt="Udgaar 2025 Theme"
+              className="rounded-xl md:rounded-2xl h-[60vw] w-[60vw] md:h-[40vw] md:w-[40vw]"
+              priority={false}
+            />
+          </div>
         </div>
         <div className="max-w-xs md:max-w-xl text-center md:text-left">
           <h2 className="text-2xl md:text-5xl font-extrabold mb-4 md:mb-6" style={{ color: '#FFD700', fontFamily: 'cursive' }}>2025 Theme</h2>

@@ -200,3 +200,18 @@ html, body {
 .bg-udgaar-gradient {
   background: linear-gradient(180deg, #6f1e59 2.25%, #b7297a 100%);
 }
+
+.udgaar-glow {
+  position: relative;
+  box-shadow: 0 0 24px 8px #bdb7f7, 0 0 48px 16px #a78bfa, 0 0 80px 32px #f0abfc;
+  animation: udgaar-glow-anim 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes udgaar-glow-anim {
+  0% {
+    box-shadow: 0 0 24px 8px #bdb7f7, 0 0 48px 16px #a78bfa, 0 0 80px 32px #f0abfc;
+  }
+  100% {
+    box-shadow: 0 0 48px 16px #a78bfa, 0 0 80px 32px #f0abfc, 0 0 120px 48px #bdb7f7;
+  }
+}
