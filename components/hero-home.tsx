@@ -439,6 +439,23 @@ export default function HeroHome() {
         <MainSpeakersSection />
       </div>
       <Footer />
+
+      {/* Floating Video Button - opens YouTube in new tab */}
+      <a
+        href="https://www.youtube.com/watch?v=MjUwrWYjTl0"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 left-6 z-[100] bg-white rounded-full shadow-lg p-4 flex items-center justify-center hover:bg-gray-100 transition-colors border border-gray-300"
+        aria-label="Watch YouTube Video"
+        style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.15)' }}
+      >
+        {/* Video Icon SVG */}
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="16" fill="#FF0000"/>
+          <polygon points="13,10 24,16 13,22" fill="#fff" />
+        </svg>
+      </a>
+
     </>
   );
 }
