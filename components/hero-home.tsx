@@ -281,53 +281,41 @@ const SpeakersCarousel = () => {
           {isMobile ? (
             <div className="relative w-full flex items-center justify-center">
               <button
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg border-2 border-yellow-300 hover:bg-yellow-100 active:scale-95 transition-all duration-150"
                 onClick={prevSlide}
                 aria-label="Previous"
               >
-                <span className="text-2xl">&#60;</span>
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="14" cy="14" r="13" stroke="#FFD600" strokeWidth="2" fill="white"/>
+                  <path d="M17 8L11 14L17 20" stroke="#FFD600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </button>
-              <div
-                className="w-full flex overflow-hidden"
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
-              >
-                <div
-                  className="w-full flex transition-transform duration-500"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {speakers.map((speaker, idx) => (
-                    <div
-                      key={idx}
-                      className="w-full flex-shrink-0 flex flex-col items-center justify-center px-4"
-                      style={{ minWidth: '100%' }}
-                    >
-                      {/* EXACT same markup as desktop card */}
-                      <div className={cardStyles.card + ' group cursor-pointer hover:scale-105 transition-transform duration-300'}>
-                        <div className={cardStyles.cardInner}>
-                          <img
-                            src={speaker.image}
-                            alt={speaker.title}
-                            className={cardStyles.cardImage}
-                          />
-                          <div className={cardStyles.cardOverlay} />
-                          <div className={cardStyles.cardText}>
-                            <div className={cardStyles.accentLine} />
-                            <div className={cardStyles.cardTitle}>{speaker.title}</div>
-                          </div>
-                        </div>
-                      </div>
+              {/* Only render the current card, centered, NOT inside a flex-1 or stretching container */}
+              <div className="mx-auto" style={{ width: 220, height: 420 }}>
+                <div className={cardStyles.card + ' group cursor-pointer hover:scale-105 transition-transform duration-300'} style={{ width: 220, height: 420 }}>
+                  <div className={cardStyles.cardInner}>
+                    <img
+                      src={speakers[currentSlide].image}
+                      alt={speakers[currentSlide].title}
+                      className={cardStyles.cardImage}
+                    />
+                    <div className={cardStyles.cardOverlay} />
+                    <div className={cardStyles.cardText}>
+                      <div className={cardStyles.accentLine} />
+                      <div className={cardStyles.cardTitle}>{speakers[currentSlide].title}</div>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
               <button
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg border-2 border-yellow-300 hover:bg-yellow-100 active:scale-95 transition-all duration-150"
                 onClick={nextSlide}
                 aria-label="Next"
               >
-                <span className="text-2xl">&#62;</span>
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="14" cy="14" r="13" stroke="#FFD600" strokeWidth="2" fill="white"/>
+                  <path d="M11 8L17 14L11 20" stroke="#FFD600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </button>
             </div>
           ) : (
