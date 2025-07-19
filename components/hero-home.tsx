@@ -146,68 +146,91 @@ function ParallaxVideo() {
 }
 
 const UdgarBg = () => (
-  <section className="relative w-full aspect-video bg-black overflow-hidden p-0 m-0">
-    <video
-      src="/videos/udgaar website video.mp4"
-      className="w-full h-full object-contain bg-black"
-      autoPlay
-      loop
-      muted
-      playsInline
-      style={{ display: 'block' }}
-    />
-    <div className="absolute inset-0 bg-transparent bg-opacity-30"></div>
+  <section className="relative z-20 -mb-24 min-h-[120vh] md:min-h-[150vh] overflow-hidden">
+    {/* Background Images */}
+    <div className="absolute inset-0">
+      <video
+        src="/videos/udgaar website video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{ display: 'block' }}
+        className="w-full h-[60vh] md:h-[80vh] object-cover"
+      />
+      <div className="absolute inset-0 bg-transparent bg-opacity-30"></div>
+    </div>
+    {/* UDGAAR Title */}
+    <div className="absolute inset-0 top-[20vh] flex-col justify-center items-start">
+      {/* Removed Register now and Watch Teaser CTA buttons */}
+    </div>
   </section>
 );
 
 const AboutBg = () => {
-  return <section className="relative min-h-screen overflow-hidden">
+  return <section className="relative min-h-[180vw] md:min-h-[190vh] md:top-[-60vh] top-[-50vh] overflow-hidden bg-[#FFD700]" style={{
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 100% 85%, 0% 100%)",
+    overflow: "hidden",
+    paddingBottom: 0,
+  }}>
     {/* Background Image Layer */}
     <div className="absolute inset-0 z-0">
       <Image
         src={require('./assets/mid-bg.png')}
         alt="Background"
-        className="w-full h-full object-cover"
+        className="w-full h-full"
       />
       <div className="absolute inset-0 bg-transparent bg-opacity-30" />
     </div>
-
     {/* Foreground Content Layer */}
-    <div className="relative z-10">
+    <div className="relative z-10 pt-10 md:pt-0">
       <Countdown />
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 mb-0 px-2 md:px-4 py-4 md:py-8" id="theme2025">
-        <div className="flex-shrink-0 bg-white rounded-2xl md:rounded-3xl p-2 md:p-4 shadow-2xl" style={{ border: '3px solid #bdb7f7' }}>
-          <div className="udgaar-glow rounded-xl md:rounded-2xl">
-            <Image
-              src={UdgaarThemeImg}
-              alt="Udgaar 2025 Theme"
-              className="rounded-xl md:rounded-2xl h-[60vw] w-[60vw] md:h-[40vw] md:w-[40vw]"
-              priority={false}
-            />
+        <div className="flex-shrink-0">
+          <div className="relative rounded-2xl p-[5px] md:p-[7px] bg-gradient-to-r from-purple-500 via-purple-700 to-pink-500 animate-pulse shadow-[0_0_40px_10px_rgba(128,0,255,0.7)]">
+            <div className="bg-white rounded-xl md:rounded-2xl overflow-hidden">
+              <Image
+                src={UdgaarThemeImg}
+                alt="Udgaar 2025 Theme"
+                className="rounded-2xl md:h-[40vw] md:w-[40vw] w-[80vw] h-[80vw]"
+                priority={false}
+              />
+            </div>
           </div>
         </div>
         <div className="max-w-xs md:max-w-xl text-center md:text-left">
-          <h2 className="text-2xl md:text-5xl font-extrabold mb-4 md:mb-6" style={{ color: '#FFD700', fontFamily: 'cursive' }}>2025 Theme</h2>
-          <p className="text-white text-sm md:text-lg font-medium leading-relaxed">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6" style={{ color: '#FFD700', fontFamily: 'cursive' }}>2025 Theme</h2>
+          <p className="text-white text-xl md:text-3xl font-medium leading-relaxed">
             UDGAAR is formatted to be a blend of edutainment and empowerment, where thousands of youngsters and dignitaries get the opportunity to connect and converge on values integral to a healthy gratifying state.<br /><br />
             UDGAAR 2024 is themed on De-addiction: Making India Addiction Free. This year's theme hopes to inspire our youngsters to realize the glory in a clean, green and progressive India.
           </p>
         </div>
       </div>
-
-      <div className="relative min-h-screen overflow-hidden">
+      <div className="relative min-h-screen sm:min-h-[50vh] md:min-h-[100vh] lg:min-h-[100vh] overflow-hidden -mt-16">
         {/* Other content */}
-
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5859265a6bc4afc6a87a454618cf108335d2750?width=1698"
           alt="Decorative"
-          className="absolute bottom-1 left-0 w-[60vw] md:w-[60vw] z-10"
+          className="absolute bottom-[110vw] md:bottom-0 left-0 w-[60vw] md:w-[60vw] md:z-10"
         />
+        <div className="absolute bottom-[110vw] right-[0vw] md:bottom-[20vw] md:right-[1vw] mb-30 ml-20 -mt-32">
+          <div className="text-center space-y-2">
+            <h3 className="text-white md:text-2xl sm:text-2xl md:text-4xl font-semibold italic font-serif">
+              Our Inspiration
+            </h3>
+            <h1 className="text-red-800 text-xl sm:text-4xl md:text-5xl font-bold leading-tight">
+              HDG A.C. Bhaktivedanta<br />
+              Swami Prabhupad
+            </h1>
+            <p className="text-black text-base text-sm md:text-xl font-medium">
+              Founder Acharya: <span className="font-bold">ISKCON</span>
+            </p>
+          </div>
+        </div>
       </div>
-
     </div>
-  </section>
-}
+  </section>;
+};
 
 const SpeakersCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -346,9 +369,9 @@ const SpeakersCarousel = () => {
 };
 
 const ChiefBg = () => (
-  <section className="relative min-h-[150vh] md:min-h-[170vh] top-[-110vh] overflow-hidden">
+  <section className="relative min-h-[150vh] sm:min-h-[150vh] md:min-h-[170vh] md:top-[-110vh] top-[-118vh] overflow-hidden">
     {/* Background Images */}
-    <div className="absolute inset-0 z-[-1]">
+    <div className="absolute inset-0 md:z-[-1] z-[0]">
       <Image
         src={require('./assets/chief-bg.png')}
         alt="Background"
@@ -363,16 +386,16 @@ const ChiefBg = () => (
       <img
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/8d700eabd62ea65899853e0d9b622db4bfe2d7af?width=1264"
         alt="Decorative"
-        className="absolute right-0 bottom-0 w-[40vw] md:w-[40vw] z-10"
+        className="absolute right-0 bottom-[120vw] xs:bottom-[120vw] sm:bottom-[100vw] md:bottom-0 w-[40vw] md:w-[40vw] z-10"
       />
-      <div className="absolute bottom-50 left-[10vw] mb-8 ml-8">
+      <div className="absolute bottom-[125vw] left-[0vw] md:bottom-50 md:left-[10vw] mb-8 ml-8">
         <div>
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/d576fc1da9ba7814b5347ab39bc7d8c453c7780c?width=1146"
             alt="Chief Guest"
-            className="mb-4 w-full max-w-[400px]"
+            className="mb-4 w-[50vw] md:w-full md:max-w-[400px]"
           />
-          <h3 className="text-[#4173B0] text-2xl md:text-3xl font-bold font-raleway">
+          <h3 className="text-[#4173B0] text-xl md:text-3xl font-bold font-raleway">
             Prime Minister of India
           </h3>
         </div>
@@ -428,21 +451,16 @@ export default function HeroHome() {
   return (
     <>
       <UdgarBg />
-      {/* Move the countdown and pink section directly below the video */}
       <AboutBg />
-      <div className="relative">
-        <ChiefBg />
-      </div>
-      <div className="relative">
+      <ChiefBg />
+      <div className="-mt-522 md:-mt-64 lg:-mt-96 xl:-mt-410">
         <SpeakersCarousel />
-        <div className="relative w-screen">
-          <ParallaxVideo />
-        </div>
-        <MainSpeakersSection />
       </div>
+      <div className="relative w-screen">
+        <ParallaxVideo />
+      </div>
+      <MainSpeakersSection />
       <Footer />
-
-      {/* Floating Video Button - opens YouTube in new tab */}
       <a
         href="https://www.youtube.com/watch?v=MjUwrWYjTl0"
         target="_blank"
@@ -451,13 +469,11 @@ export default function HeroHome() {
         aria-label="Watch YouTube Video"
         style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.15)' }}
       >
-        {/* Video Icon SVG */}
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <circle cx="16" cy="16" r="16" fill="#FF0000"/>
           <polygon points="13,10 24,16 13,22" fill="#fff" />
         </svg>
       </a>
-
     </>
   );
 }

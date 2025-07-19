@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
-import FestivalBackground from "@/components/FestivalBackground";
 import FloatingButtons from "@/components/FloatingButtons";
 
 const inter = Inter({
@@ -55,7 +54,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${nacelle.variable} font-inter text-base text-gray-200 antialiased`}
       >
-        <FestivalBackground />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>

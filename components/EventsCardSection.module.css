@@ -111,4 +111,61 @@
   font-size: 32px;
   color: #8538A8;
   line-height: 1;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    min-height: 500px !important;
+    padding: 20px 0 !important;
+  }
+  
+  .cards {
+    flex-direction: column !important;
+    gap: 24px !important;
+    margin: 0 20px !important;
+    align-items: center !important;
+  }
+  
+  .card {
+    width: 220px !important;
+    height: 420px !important;
+    transform: none !important;
+    /* Maintain exact same dimensions as desktop */
+    /* Remove skew transforms on mobile */
+  }
+  
+  .arrow {
+    display: none !important;
+    /* Hide navigation arrows on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    min-height: 400px;
+    padding: 15px 0;
+  }
+  
+  .cards {
+    margin: 0 15px;
+  }
+  
+  .card {
+    width: 200px;
+    height: 380px;
+    /* Slightly smaller but maintain proportions */
+  }
+  
+  .cardText {
+    padding: 20px 14px 16px 14px;
+  }
+  
+  .cardTitle {
+    font-size: 18px;
+  }
+  
+  .cardSubtitle {
+    font-size: 14px;
+  }
 } 

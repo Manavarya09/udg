@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './EventsCardSection.module.css';
 
 const events = [
@@ -31,7 +31,21 @@ const cardTransforms = [
   'skewY(10deg)',
 ];
 
-const EventsCardSection: React.FC = () => (
+const EventsCardSection: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  return (
   <div className={styles.container}>
     <button className={styles.arrow} style={{ left: 60 }} aria-label="Previous">
       <span className={styles.arrowIcon}>{'<'}</span>
@@ -41,7 +55,7 @@ const EventsCardSection: React.FC = () => (
         <div
           key={event.title}
           className={styles.card}
-          style={{ transform: cardTransforms[idx] }}
+          style={{ transform: isMobile ? 'none' : cardTransforms[idx] }}
         >
           <img
             src={event.img}
@@ -63,6 +77,7 @@ const EventsCardSection: React.FC = () => (
       <span className={styles.arrowIcon}>{'>'}</span>
     </button>
   </div>
-);
+  );
+};
 
 export default EventsCardSection; 
