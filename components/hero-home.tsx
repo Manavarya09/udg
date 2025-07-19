@@ -427,7 +427,7 @@ export default function HeroHome() {
       <UdgarBg />
       <AboutBg />
       <ChiefBg />
-      <div className="-mt-522 md:-mt-64 lg:-mt-96 xl:-mt-410">
+      <div className="-mt-522 md:-mt-64 lg:-mt-96 xl:-mt-410" id="speakers">
         <SpeakersCarousel />
       </div>
       <div className="relative w-screen">
