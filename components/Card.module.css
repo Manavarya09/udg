@@ -1,0 +1,85 @@
+.card {
+  width: 220px !important;
+  height: 420px !important;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: box-shadow 0.2s, opacity 0.3s, transform 0.3s;
+  filter: drop-shadow(-5px -5px 20px rgba(0, 0, 0, 0.25));
+  transform: skewY(-10deg) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardInner {
+  width: 100%;
+  height: 100%;
+  transform: skewY(10deg) !important;
+  position: relative;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+.cardOverlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(0deg, rgba(61,0,80,0.85) 60%, rgba(61,0,80,0.0) 100%);
+  z-index: 1;
+}
+
+.cardText {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 24px 16px 20px 16px;
+  z-index: 2;
+  color: #fff;
+  font-family: inherit;
+}
+
+.accentLine {
+  width: 36px;
+  height: 3px;
+  background: #FFE600;
+  margin-bottom: 12px;
+  border-radius: 2px;
+}
+
+.cardTitle {
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFE600;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+} 
+
+@media (max-width: 600px) {
+  .card {
+    width: 220px !important;
+    height: 420px !important;
+    min-width: 220px !important;
+    min-height: 420px !important;
+    max-width: 220px !important;
+    max-height: 420px !important;
+  }
+} 

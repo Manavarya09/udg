@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
 import FestivalBackground from "@/components/FestivalBackground";
+import FloatingButtons from "@/components/FloatingButtons";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,6 +59,7 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
+        <FloatingButtons />
       </body>
     </html>
   );
