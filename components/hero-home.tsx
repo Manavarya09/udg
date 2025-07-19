@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import UdgaarThemeImg from "@/public/images/udgaar-theme-2025.png";
 import Footer from "./ui/footer";
 import cardStyles from './Card.module.css';
+import ImageGallery from './ImageGallery';
 
 function getTimeLeft(target: number) {
   const now = typeof window !== 'undefined' ? new Date().getTime() : 0;
@@ -412,39 +413,12 @@ const ChiefBg = () => (
 
 // Main Speakers Section
 const MainSpeakersSection = () => (
-  <div className="relative w-screen h-[40vh] sm:h-[60vh] md:h-[80vh] flex bg-[#683FB8] py-8 sm:py-16 md:py-24 b-[50vh]">
-    <div className="max-w-screen-xl mx-auto px-2 sm:px-4 md:px-8 lg:px-16">
-      {/* SPEAKERS Title */}
-      <h2
-        className="text-white font-raleway text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-medium text-center mb-4 sm:mb-10"
-        style={{ letterSpacing: "0.1em" }}
-      >
-        SPEAKERS
-      </h2>
-
-      {/* Team Player Image */}
-      <div className="relative mb-8 sm:mb-16">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/3db240d2df9a97fa9213f9dd12f232110a1c0b3f?width=2880"
-          alt="Team Players"
-          className="w-full rounded-lg shadow-xl max-h-[180px] sm:max-h-[320px] md:max-h-none"
-        />
-
-        {/* Speaker Info Positioned at Bottom Center */}
-        <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 text-center">
-          <h3 className="text-[#FFF4AD] font-bold text-base sm:text-2xl md:text-3xl lg:text-xl mb-1 sm:mb-2">
-            HG SUNDAR GOPAL PRABHU
-          </h3>
-          <p className="text-white font-bold text-xs sm:text-lg md:text-xl lg:text-xl">
-            CHAIRMAN IIYC
-          </p>
-        </div>
-      </div>
-
+  <div className="relative w-screen h-[70vh] min-h-0 flex bg-[#683FB8]">
+    <div className="w-full h-full min-h-0 flex">
+      <ImageGallery />
     </div>
   </div>
 );
-
 
 
 export default function HeroHome() {
