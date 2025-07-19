@@ -413,7 +413,7 @@ const ChiefBg = () => (
 
 // Main Speakers Section
 const MainSpeakersSection = () => (
-  <div className="relative w-screen h-[70vh] min-h-0 flex bg-[#683FB8]">
+  <div className="relative w-screen h-[50vh] md:h-[70vh] min-h-0 flex bg-[#683FB8]">
     <div className="w-full h-full min-h-0 flex">
       <ImageGallery />
     </div>

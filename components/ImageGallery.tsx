@@ -65,24 +65,44 @@ const images = [
 
 const ImageGallery: React.FC = () => {
   return (
-    <div className="flex h-[70vh] overflow-hidden group transition-all duration-500 w-full">
-      {images.map((image, idx) => (
-        <div
-          key={idx}
-          className="flex-1 transition-all duration-500 ease-in-out hover:flex-[5] group-hover:flex-[1] relative"
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="w-full h-full object-cover object-center transition-all duration-500"
-          />
-          {/* Speaker info overlay */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
-            <h3 className="text-white font-bold text-sm md:text-lg">{image.name}</h3>
-            <p className="text-yellow-300 text-xs md:text-sm">{image.title}</p>
+    <div className="w-full">
+      {/* Desktop Layout */}
+      <div className="hidden md:flex h-[70vh] overflow-hidden group transition-all duration-500">
+        {images.map((image, idx) => (
+          <div
+            key={idx}
+            className="flex-1 transition-all duration-500 ease-in-out hover:flex-[5] group-hover:flex-[1] relative"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full h-full object-cover object-center transition-all duration-500"
+            />
+            {/* Speaker info overlay */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <h3 className="text-white font-bold text-sm md:text-lg">{image.name}</h3>
+              <p className="text-yellow-300 text-xs md:text-sm">{image.title}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      {/* Mobile Layout */}
+      <div className="flex md:hidden h-[50vh] overflow-x-auto snap-x snap-mandatory scroll-smooth">
+        {images.map((image, idx) => (
+          <div
+            key={idx}
+            className="flex-shrink-0 w-full snap-center px-1"
+            style={{ minWidth: "100%" }}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
