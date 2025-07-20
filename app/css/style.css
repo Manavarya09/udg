@@ -103,6 +103,35 @@ html, body {
   overflow-x: hidden;
   background: transparent;
   box-sizing: border-box;
+  cursor: none !important; /* Hide default cursor for custom cursor */
+}
+
+/* Custom cursor styles (the actual cursor will be a React component) */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.85);
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s linear;
+}
+.custom-cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.25);
+  pointer-events: none;
+  z-index: 99998;
+  filter: blur(8px);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .event-card {

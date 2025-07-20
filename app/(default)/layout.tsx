@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import Footer from "@/components/ui/footer";
+import CustomCursor from '@/components/CustomCursor';
 
 export default function DefaultLayout({
   children,
@@ -23,8 +24,8 @@ export default function DefaultLayout({
 
   return (
     <>
+      <CustomCursor />
       <main className="relative flex grow flex-col">{children}</main>
-     
     </>
   );
 }
