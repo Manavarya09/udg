@@ -3,63 +3,63 @@ import React from "react";
 const images = [
   {
     src: "/images/speakers/speaker1.jpg",
-    alt: "HG Sundar Gopal Prabhu - Chairman IIYC",
-    name: "HG Sundar Gopal Prabhu",
-    title: "Chairman IIYC"
-  },
-  {
-    src: "/images/speakers/speaker2.jpg", 
-    alt: "HH Guru Prasad Swami Maharaj",
-    name: "HH Guru Prasad Swami Maharaj",
+    alt: "Guru Prasad Maharaj",
+    name: "Guru Prasad Maharaj",
     title: "Spiritual Leader"
   },
   {
+    src: "/images/speakers/speaker2.jpg", 
+    alt: "Lokanath Swami Maharaj",
+    name: "Lokanath Swami Maharaj",
+    title: "Spiritual Guide"
+  },
+  {
     src: "/images/speakers/speaker3.jpg",
-    alt: "HDG A.C. Bhaktivedanta Swami Prabhupada - Founder Acharya ISKCON",
-    name: "HDG A.C. Bhaktivedanta Swami Prabhupada", 
-    title: "Founder Acharya ISKCON"
+    alt: "HG Sundar Gopal Prabhu",
+    name: "HG Sundar Gopal Prabhu", 
+    title: "Chairman IIYC"
   },
   {
     src: "/images/speakers/speaker4.jpg",
-    alt: "Dr. M Srinivas",
-    name: "Dr. M Srinivas",
-    title: "Cultural Leader"
-  },
-  {
-    src: "/images/speakers/speaker5.jpg",
-    alt: "Spiritual Speaker",
-    name: "Spiritual Speaker",
+    alt: "Bhakti Prem Swami",
+    name: "Bhakti Prem Swami",
     title: "Devotional Leader"
   },
   {
+    src: "/images/speakers/speaker5.jpg",
+    alt: "HG Devaki Nandan Prabhu",
+    name: "HG Devaki Nandan Prabhu",
+    title: "Spiritual Teacher"
+  },
+  {
     src: "/images/speakers/speaker6.jpg",
-    alt: "Monk in Orange Robes",
-    name: "Monk in Orange Robes",
+    alt: "HG Ram Bhadra Pr",
+    name: "HG Ram Bhadra Pr",
     title: "Spiritual Guide"
   },
   {
     src: "/images/speakers/speaker7.jpg",
-    alt: "Cultural Event Speaker",
-    name: "Cultural Event Speaker", 
-    title: "Cultural Ambassador"
+    alt: "Guru Prasad Maharaj",
+    name: "Guru Prasad Maharaj", 
+    title: "Spiritual Leader"
   },
   {
     src: "/images/speakers/speaker8.jpg",
-    alt: "ISKCON Speaker",
-    name: "ISKCON Speaker",
-    title: "Spiritual Teacher"
+    alt: "HG Mahaman Prabhu",
+    name: "HG Mahaman Prabhu",
+    title: "Devotional Teacher"
   },
   {
     src: "/images/speakers/speaker9.jpg",
-    alt: "Large Audience Speaker",
-    name: "Large Audience Speaker",
-    title: "Public Speaker"
+    alt: "312610812_135364142593291_958920488306895415_n",
+    name: "312610812_135364142593291_958920488306895415_n",
+    title: "Special Guest"
   },
   {
     src: "/images/speakers/speaker10.jpg",
-    alt: "Musical Performance Speaker",
-    name: "Musical Performance Speaker",
-    title: "Devotional Artist"
+    alt: "312610812_135364142593291_958920488306895415_n",
+    name: "312610812_135364142593291_958920488306895415_n",
+    title: "Special Guest"
   }
 ];
 

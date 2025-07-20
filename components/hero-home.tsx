@@ -242,22 +242,22 @@ const SpeakersCarousel = () => {
     {
       image:
         "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581156/pj-jweller/Mask_group_2_f64w79.png",
-      title: "HH Guru Prasad Swami Maharaj",
+      title: "Guru Prasad Maharaj",
     },
     {
       image:
         "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581151/pj-jweller/Mask_group_1_m0afj6.png",
-      title: "Theatrical Show",
+      title: "Lokanath Swami Maharaj",
     },
     {
       image:
         "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581144/pj-jweller/Mask_group_dk9qwm.png",
-      title: "Musical Concert",
+      title: "HG Sundar Gopal Prabhu",
     },
     {
       image:
         "https://res.cloudinary.com/dm1o3cvik/image/upload/v1752581198/pj-jweller/Mask_group_3_znpkp2.png",
-      title: "Cultural Performance",
+      title: "Bhakti Prem Swami",
     },
   ];
 
