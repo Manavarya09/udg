@@ -76,9 +76,9 @@ const HeaderView = () => {
               >
                 Event
               </span>
-              <span className="text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer">
+              <Link href="/contact" className="text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer">
                 Contact Us
-              </span>
+              </Link>
             </nav>
             {/* Register Button - right aligned */}
             <div className="hidden md:flex flex-shrink-0">
