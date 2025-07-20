@@ -1,6 +1,6 @@
 .footer-root {
   width: 100%;
-  background: linear-gradient(135deg, #2d085c 0%, #3a1c71 100%);
+  background: linear-gradient(135deg, #F8B428 0%, #982167 48%, #331444 100%);
   color: #fff;
   padding: 0;
   display: flex;
@@ -97,52 +97,24 @@
 }
 
 .register-btn {
-  background: linear-gradient(180deg, #FFD600 0%, #FFB800 100%);
-  color: #222;
-  font-size: 1.6rem;
-  font-weight: 900;
+  background: transparent;
   border: none;
-  border-radius: 50px 50px 50px 50px / 70px 70px 60px 60px;
-  box-shadow: 0 8px 32px 0 #0004, 0 2px 16px 0 #FFD60044;
-  padding: 18px 44px 18px 44px;
-  min-width: 200px;
-  min-height: 60px;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  pointer-events: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  cursor: pointer;
-  transition: box-shadow 0.2s, transform 0.2s;
-  pointer-events: auto;
 }
 
 .register-btn:hover {
-  box-shadow: 0 12px 40px 0 #FFD60099, 0 2px 24px 0 #FFD60044;
-  transform: translateY(-4px) scale(1.04);
+  transform: scale(1.05);
 }
 
-.register-btn span {
-  display: block;
-  text-align: center;
-  font-family: inherit;
-  z-index: 2;
-}
-
-.register-hand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 10px;
-  bottom: 6px;
-  width: 32px;
-  height: 32px;
-  z-index: 3;
-}
-
-.register-hand svg {
-  width: 28px;
-  height: 28px;
+.register-image {
+  max-width: 300px;
+  height: auto;
   display: block;
 }
 
@@ -179,20 +151,7 @@
   .footer-value {
     font-size: 1.1rem;
   }
-  .register-btn {
-    font-size: 0.9rem;
-    min-width: 120px;
-    min-height: 36px;
-    padding: 8px 16px 8px 16px;
-  }
-  .register-hand {
-    width: 18px;
-    height: 18px;
-    right: 4px;
-    bottom: 2px;
-  }
-  .register-hand svg {
-    width: 14px;
-    height: 14px;
+  .register-image {
+    max-width: 150px;
   }
 } 

@@ -2,6 +2,13 @@ import React from 'react';
 import styles from './footer.module.css';
 
 export default function Footer() {
+  const handleRegisterClick = () => {
+    // Add your registration logic here
+    console.log('Register button clicked!');
+    // You can redirect to registration page or open a modal
+    // window.location.href = '/register';
+  };
+
   return (
     <footer className={styles['footer-root']}>
       <div className={styles['footer-content']}>
@@ -24,15 +31,16 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles['footer-register-container']}>
-          <button className={styles['register-btn']}>
-            <span>REGISTER NOW!</span>
-            <span className={styles['register-hand']}>
-              {/* Inline SVG hand/click icon */}
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="24" fill="#fff"/>
-                <path d="M32.5 28.5L25.5 21.5V13.5C25.5 12.6716 24.8284 12 24 12C23.1716 12 22.5 12.6716 22.5 13.5V28.5L20.5 26.5C19.6716 25.6716 18.3284 25.6716 17.5 26.5C16.6716 27.3284 16.6716 28.6716 17.5 29.5L24 36L30.5 29.5C31.3284 28.6716 31.3284 27.3284 30.5 26.5C29.6716 25.6716 28.3284 25.6716 27.5 26.5L25.5 28.5" stroke="#FFD600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
+          <button 
+            className={styles['register-btn']}
+            onClick={handleRegisterClick}
+            aria-label="Register Now"
+          >
+            <img 
+              src="/images/Layer 826.png" 
+              alt="Register Now" 
+              className={styles['register-image']}
+            />
           </button>
         </div>
       </div>
