@@ -246,6 +246,9 @@ html, body {
   backface-visibility: visible !important;
 }
 
+input, textarea, select, button {
+  cursor: auto !important;
+}
 
 .bg-udgaar-gradient {
   background: linear-gradient(180deg, #6f1e59 2.25%, #b7297a 100%);

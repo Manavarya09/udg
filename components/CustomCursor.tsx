@@ -50,6 +50,12 @@ const CustomCursor: React.FC = () => {
       const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement;
       setIsHover(!!el && (el.tagName === 'A' || el.tagName === 'BUTTON' || el.classList.contains('cursor-pointer')));
       setIsInteractiveElem(isInteractive(el));
+      // Hide cursor if over input, textarea, or select
+      if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT')) {
+        setShowCursor(false);
+      } else {
+        setShowCursor(true);
+      }
     };
     const handleDown = () => setIsClick(true);
     const handleUp = () => setIsClick(false);
@@ -63,6 +69,8 @@ const CustomCursor: React.FC = () => {
     };
   }, []);
 
+  const [showCursor, setShowCursor] = useState(true);
+
   let cursorClass = 'custom-cursor';
   if (isClick) cursorClass += ' custom-cursor--click';
   else if (isHover) cursorClass += ' custom-cursor--hover';
@@ -70,13 +78,15 @@ const CustomCursor: React.FC = () => {
 
   return (
     <>
-      <div
-        className={cursorClass}
-        style={{
-          transform: `translate3d(${x - 16}px, ${y - 16}px, 0)`
-        }}
-      />
-      {Array.from({ length: TRAIL_COUNT }).map((_, i) => (
+      {showCursor && (
+        <div
+          className={cursorClass}
+          style={{
+            transform: `translate3d(${x - 16}px, ${y - 16}px, 0)`
+          }}
+        />
+      )}
+      {showCursor && Array.from({ length: TRAIL_COUNT }).map((_, i) => (
         <div
           key={i}
           ref={el => (trailRefs.current[i] = el)}
