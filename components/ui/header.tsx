@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Logo from "./logo";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -36,6 +38,7 @@ const ProgressBar = () => {
 };
 
 const HeaderView = () => {
+  const pathname = usePathname();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -47,43 +50,43 @@ const HeaderView = () => {
     <>
       <ProgressBar />
       <header className="sticky top-0 z-50 w-full h-16 md:h-20 bg-udgaar-gradient relative">
-        <div className="relative h-full flex items-center justify-between">
+        <div className="relative h-full flex items-center">
           {/* Logo - absolutely positioned to the far left */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 flex-shrink-0 h-10 md:h-14 flex items-center pl-2" style={{marginLeft: 0}}>
             <Logo />
           </div>
-          {/* Main navbar container, centered, with left padding for logo space */}
-          <div className="max-w-screen-xl mx-auto w-full h-full flex items-center justify-between pl-40">
+          {/* Main navbar container: nav centered */}
+          <div className="max-w-screen-xl mx-auto w-full h-full flex items-center justify-center pl-40 pr-40">
             {/* Navigation Links - centered */}
             <nav className="hidden md:flex flex-1 items-center justify-center gap-4 lg:gap-8">
               <div className="flex flex-col items-center">
-                <span 
-                  className="text-white font-inter font-semibold text-sm lg:text-base cursor-pointer hover:text-gray-200"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                <Link 
+                  href="/"
+                  className={`text-white font-inter font-semibold text-sm lg:text-base cursor-pointer hover:text-gray-200 ${pathname === '/' ? 'border-b-2 border-yellow-400' : ''}`}
                 >
                   Home
-                </span>
+                </Link>
               </div>
               <span 
-                className="text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer"
+                className={`text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer ${pathname === '/#theme2025' ? 'border-b-2 border-yellow-400' : ''}`}
                 onClick={() => scrollToSection('theme2025')}
               >
                 About
               </span>
               <span 
-                className="text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer"
+                className={`text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer ${pathname === '/#speakers' ? 'border-b-2 border-yellow-400' : ''}`}
                 onClick={() => scrollToSection('speakers')}
               >
                 Event
               </span>
-              <Link href="/contact" className="text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer">
+              <Link href="/contact" className={`text-white font-inter text-sm lg:text-base hover:text-gray-200 cursor-pointer ${pathname === '/contact' ? 'border-b-2 border-yellow-400' : ''}`}>
                 Contact Us
               </Link>
             </nav>
-            {/* Register Button - right aligned */}
-            <div className="hidden md:flex flex-shrink-0">
-              <button className="bg-[#ECD387] text-black px-6 py-2 rounded-full font-inter text-sm lg:text-base font-medium hover:bg-yellow-300 transition-colors">
-                Register
+            {/* Register Button - absolutely right */}
+            <div className="hidden md:flex flex-shrink-0 items-center" style={{position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', minWidth: '140px'}}>
+              <button className="px-0 py-0 rounded-full overflow-hidden flex items-center justify-center" style={{background: 'none', border: 'none', boxShadow: 'none'}} aria-label="Register">
+                <Image src="/images/Button.png" alt="Register" width={120} height={40} priority />
               </button>
             </div>
             {/* Mobile Menu Button */}
