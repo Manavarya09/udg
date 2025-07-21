@@ -89,7 +89,7 @@ const CustomCursor: React.FC = () => {
       {showCursor && Array.from({ length: TRAIL_COUNT }).map((_, i) => (
         <div
           key={i}
-          ref={el => (trailRefs.current[i] = el)}
+          ref={el => {trailRefs.current[i] = el}}
           className="custom-cursor-trail"
         />
       ))}
